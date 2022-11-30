@@ -11,7 +11,7 @@
         <relativePath></relativePath>
     </parent>
     <groupId>org.anyline</groupId>
-    <artifactId>anyline-simple-alpha-clear</artifactId>
+    <artifactId>anyline-simple-clear</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
     <description>
@@ -31,7 +31,7 @@
         <dependency>
             <groupId>org.anyline</groupId>
             <artifactId>anyline-dependency</artifactId>
-            <version>8.6.1-SNAPSHOT</version>
+            <version>8.6.1-20221130</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
@@ -137,19 +137,6 @@
         </dependency>
     </dependencies>
 
-    <repositories>
-        <repository>
-            <id>aliyun</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-        </repository>
-        <repository>
-            <id>anyline</id>
-            <url>http://maven.anyline.org/repository/maven-snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
     <build>
         <plugins>

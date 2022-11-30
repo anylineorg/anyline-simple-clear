@@ -5,4 +5,5 @@
 其他的一些依赖一般用现有项目的就可以  
     
 
-当前项目只演示入门环境配置，更多语法参考其他模块
+当前项目只演示入门环境配置，更多语法参考其他模块[【anyline-simple】](https://gitee.com/anyline/anyline-simple)
+
