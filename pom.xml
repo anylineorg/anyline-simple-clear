@@ -27,11 +27,12 @@
         <!--
             这里主要定义了一些版本号
             实现项目中也是换成各自公司自己的
+            如果能配置私服的话可以用快照版本(8.6.1-SNAPSHOT)
         -->
         <dependency>
             <groupId>org.anyline</groupId>
             <artifactId>anyline-dependency</artifactId>
-            <version>8.6.1-20221130</version>
+            <version>8.6.1-20221201</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>
