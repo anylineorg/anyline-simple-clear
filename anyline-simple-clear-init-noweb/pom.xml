@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <!--这里的parent 实际项目中一般要换成继承自己公司的start或parent -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.3</version>
+        <relativePath></relativePath>
+    </parent>
+    <groupId>org.anyline</groupId>
+    <artifactId>anyline-simple-clear-init-noweb</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+    <description>
+        这是一个独立的项目,spring-boot环境,与其他模块没有任何关系,直接运行 也可以用IDEA直接打开这个子目录
+        现有项目基础上要集成anyline可以参考这里
+        主要配置了maven仓库以及mvc环境和jdbc环境
+        其他的一些依赖一般用现有项目的就可以
+    </description>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--
+                这里主要定义了一些版本号
+                实现项目中也是换成各自公司自己的
+                如果能配置私服的话可以用快照版本(8.6.3-SNAPSHOT)
+            -->
+            <dependency>
+                <groupId>org.anyline</groupId>
+                <artifactId>anyline-dependency</artifactId>
+                <version>8.6.3-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <dependencies>
+
+        <!-- mysql环境 -->
+        <dependency>
+            <groupId>org.anyline</groupId>
+            <artifactId>anyline-data-jdbc-mysql</artifactId>
+        </dependency>
+
+        <!--  mysql驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!--一些公用依赖 一般也是继承自公司自己的parent-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <!--http util 在这个依赖中 爬虫之类的操作可能需要-->
+        <dependency>
+            <groupId>org.anyline</groupId>
+            <artifactId>anyline-net</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.7</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-access</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.7.3</version>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!--
+        依赖SNAPSHOT版本时才需要
+        注意如果maven_home/setting.xml中配置了加速镜像
+        mirrorOf不要设置成*，可以设置成*,!ossrh (表示代理所有的库、但除了ossrh就是对应下面的 <id>ossrh</id>)
+    -->
+    <repositories>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+</project>
