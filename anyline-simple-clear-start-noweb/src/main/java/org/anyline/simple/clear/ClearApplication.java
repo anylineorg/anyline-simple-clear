@@ -2,6 +2,7 @@ package org.anyline.simple.clear;
 
 
 import org.anyline.service.AnylineService;
+import org.anyline.util.ConfigTable;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;

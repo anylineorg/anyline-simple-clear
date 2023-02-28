@@ -10,6 +10,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 
+
 @Component
 public class DefaultTask {
     private static Logger log = LoggerFactory.getLogger(DefaultTask.class);
@@ -22,4 +23,5 @@ public class DefaultTask {
         log.warn("http status:{}", response.getStatus());
         service.query("crm_user");
     }
+
 }
