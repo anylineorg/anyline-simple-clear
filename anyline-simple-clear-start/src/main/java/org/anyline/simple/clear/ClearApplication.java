@@ -16,5 +16,6 @@ public class ClearApplication {
         ConfigurableApplicationContext context = application.run(args);
         //这里可以验证一下 service 有没有成功注入
         AnylineService service = context.getBean(AnylineService.class);
+        service.query("crm_user");
     }
 }
